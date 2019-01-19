@@ -11,9 +11,9 @@ const double PI = 3.141592653589793238463;
 AudioFile<double> audioFile;
 double specter[15000][2];
 float freqs[] = { 65, 69, 74, 78, 83, 87, 92.5, 98, 104, 110, 117, 123,
-		  131, 139, 147, 156, 165, 175, 185, 196, 208, 220, 233, 247,
-		  262, 277, 294, 311, 330, 349, 370, 392, 415, 440, 466, 494,
-		  523, 554, 587, 622, 659, 698.5, 740, 784, 831, 880, 932, 988 };
+				  131, 139, 147, 156, 165, 175, 185, 196, 208, 220, 233, 247,
+				  262, 277, 294, 311, 330, 349, 370, 392, 415, 440, 466, 494,
+				  523, 554, 587, 622, 659, 698.5, 740, 784, 831, 880, 932, 988 };
 
 int main() 
 {
@@ -22,14 +22,14 @@ int main()
 	// Background
 	Texture background;
 	if (!background.loadFromFile("bg.png"))
-		std::cout << "Erreur lors du chargement du background" << std::endl;
+		std::cout << "Erreur lors du chargement du background." << std::endl;
 	Sprite sBackground;
 	sBackground.setTexture(background);
 	
 	// Textes
 	Font font;
 	if (!font.loadFromFile("INVASION2000.ttf"))
-		std::cout << "Erreur lors du chargement de la police" << std::endl;
+		std::cout << "Erreur du chargement de la police" << std::endl;
 	
 	Text tfreq;
 	tfreq.setFont(font);
@@ -71,8 +71,7 @@ int main()
 				c += audioFile.samples[channel][i];
 			}
 			c /= N;
-			
-            for (int f = 0; f < F; f++) 
+			for (int f = 0; f < F; f++) 
 			{
 				double a = 0;
 				double b = 0;
@@ -89,8 +88,7 @@ int main()
 				if (specter[f][0] > 500)
 					break;
 			}
-			
-            // Fréquence de la fondamentale 
+			// Fréquence de la fondamentale 
 			double ampMax = specter[0][1];
 			double freq = specter[0][0];
 			
